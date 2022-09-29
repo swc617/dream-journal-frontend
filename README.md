@@ -41,15 +41,25 @@ git push
 ```
 
 ## 라우트
+로그인
 ![login](https://user-images.githubusercontent.com/40656716/193016620-54de8835-e817-40e8-8498-4e22bd73bd60.png)
+루트
 ![root](https://user-images.githubusercontent.com/40656716/193016885-3de64f9d-1f13-4364-b0d4-81863423f924.png)
+일지 목록
 ![journals](https://user-images.githubusercontent.com/40656716/193016930-45bcd5a7-491d-4917-95f0-5d714b34b847.png)
+일지
 ![journal](https://user-images.githubusercontent.com/40656716/193016951-ecb8f3e1-495e-46dc-9afa-0ad6da8e5654.png)
+일지 폼
 ![journal-form](https://user-images.githubusercontent.com/40656716/193016974-27ed5396-e5dd-4654-bd2a-267250c1e194.png)
+뉴스피드
 ![newsfeed](https://user-images.githubusercontent.com/40656716/193017069-0565afb4-4590-451e-bf92-9dfa99b6256e.png)
+포스트
 ![post](https://user-images.githubusercontent.com/40656716/193017104-1d4a1e3b-7e14-477e-a0d7-3aa5a8f45f27.png)
+포스트 - 댓글, 좋아요
 ![post-likes-comment](https://user-images.githubusercontent.com/40656716/193017131-24f38fa4-ce01-49b9-9a9b-c4a6f0df88a2.png)
+프로필
 ![profile](https://user-images.githubusercontent.com/40656716/193017150-77c13bca-cab1-475f-aec9-2aafb1ea8b39.png)
+프로필 폼
 ![profile-form](https://user-images.githubusercontent.com/40656716/193017176-91877146-3439-47fb-ac61-0af8c2ab96f2.png)
 
 
