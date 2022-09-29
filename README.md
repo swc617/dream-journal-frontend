@@ -30,10 +30,12 @@ phases:
             - aws cloudfront create-invalidation --distribution-id <distributionid> --paths "/*"
 ```
 
-S3 웹 호스팅 버켓 구성 resourcename
-Cloudfront 구성 distributionid
-codepipeline 구성 후 codecommit repository로 배포
+* S3 웹 호스팅 버켓 구성 resourcename
+* Cloudfront 구성 distributionid
+* codepipeline 구성 후 codecommit repository로 배포
 
+```console
 npm install
 npm run build
 git push
+```
