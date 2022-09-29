@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b58ffb1f.css",
+    "main.js": "/static/js/main.3722b5e8.js",
+    "static/media/night-sky-watching.svg": "/static/media/night-sky-watching.eb9a8829c4570a9ba6aea53d68036b03.svg",
+    "index.html": "/index.html",
+    "static/media/like.svg": "/static/media/like.d3a2d96a048010dce9b7efa82fac11e2.svg",
+    "static/media/liked.svg": "/static/media/liked.76747e033195af8130aaad01fdee2863.svg",
+    "main.b58ffb1f.css.map": "/static/css/main.b58ffb1f.css.map",
+    "main.3722b5e8.js.map": "/static/js/main.3722b5e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b58ffb1f.css",
+    "static/js/main.3722b5e8.js"
+  ]
+}

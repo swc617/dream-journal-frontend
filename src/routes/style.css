@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:wght@900&display=swap');
+
+#title {
+    font-family: 'Playfair Display', serif;
+    color: #FAFAF8;
+}
+
+.home-image {
+    position: absolute;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.link {
+    text-decoration: none;
+    color: #FAFAF8
+}
+
+.btn-primary{
+    background-color: transparent;
+    border: none;
+
+}
+
+.btn-secondary {
+    background-color: #05194B;
+}
+
+#back-btn:hover{
+    background-color:#E9A494;
+
+}
+
+.nav-link:hover{
+    color: #FAFAF8;
+    background-color: #05194B
+}
+
+.nav-link:focus{
+    color: #C2B7A5
+}
+
+.calendar-journal {
+    background-color: #658beb
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #5C777E;
+}
+
+.journal{
+    text-decoration: none;
+
+}
+
+.search-field {
+    border-radius: 10px;
+    
+}
+/* -----------calendar-------------- */
+.calendar-journal {
+    background-color: #a4c3b2;
+}
+
+.react-calendar {
+    border-radius: 25%;
+}
+.react-calendar__navigation{
+    display: flex;
+}
+
+.react-calendar__navigation__label {
+    font-weight: bold;
+}
+
+.react-calendar__navigation__arrow {
+    font-weight: bold;
+    flex-grow:0.33
+}
+
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    background-color: #d1d1cb;
+}
+
+.react-calendar__month-view__weekdays abbr {
+    font-weight: bold;
+    text-decoration:none
+}
+
+.react-calendar button {
+    padding: 0.7em;
+    border: 0;
+    outline: none;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    opacity: 0.7;
+}
+.react-calendar__tile--now {
+    background: #6b9080;
+}
+
+
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #cce3de;
+}
+
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #cce3de;
+}
+
+/* post like button  */
+.like-button {
+    position: relative;
+    width:1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+
+.liked-icon{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:80%;
+    height:80%;
+    fill: #E9A494;
+}
+
+.like-icon{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    fill: #E9A494;
+}
