@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { addJournal, updateJournal } from '../services/journalService';
 
+// 일지 작성 하기 위한 폼
 export default function JournalForm(props) {
     let navigate = useNavigate();
     const location = useLocation();
     let journal = location.state;
     let formType = props.formType;
     let updateQuery;
-    // enter default value in case user does not
-    // choose from dropdown
+    // Dropdown을 수정하지 않은 경우 디폴트값 지정
     if (formType === 'add') {
         journal = {
             type: 'normalDream',
@@ -19,10 +19,12 @@ export default function JournalForm(props) {
         };
     }
 
+    // 일지 수정하는 경우 일지를 formData에 설정
     const [formData, setFormData] = useState({
         ...journal,
     });
 
+    // 폼 수정 핸들러
     const handleChange = (event) => {
         setFormData({
             ...formData,
@@ -33,6 +35,7 @@ export default function JournalForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         let response;
+        // 공개된 일지를 비공개로 설정할 경우
         if (journal.share === 'PUBLIC' && formData.share === 'PRIVATE') {
             alert(
                 'Making a journal private will delete all comments & likes. This is irreversible.'

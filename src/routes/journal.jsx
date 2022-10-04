@@ -6,6 +6,7 @@ import { getJournal, deleteJournal } from '../services/journalService';
 import { formatDreamType, formatDate } from '../services/util';
 const _ = require('lodash');
 
+// 일지 페이지
 export default function Journal() {
     let navigate = useNavigate();
     let params = useParams();
@@ -19,16 +20,19 @@ export default function Journal() {
         fetchData();
     }, []);
 
+    // 일지 수정 버튼 핸들러
     const getEditForm = () => {
         navigate('./edit', { state: journal });
     };
 
+    // 일지 삭제 버튼 핸들러
     const handleDelete = async () => {
         setJournal();
         await deleteJournal(params.id);
         navigate('/journals');
     };
 
+    // 호출한 일지 목록이 비어있는지 확인
     const isJournalFound = (journal) => {
         if (_.isEmpty(journal)) {
             return false;
@@ -37,14 +41,15 @@ export default function Journal() {
         }
     };
 
-
-
     return (
         <>
             {isJournalFound(journal) ? (
                 <div class="d-grid col-lg-9 mx-lg-auto row row-cols-1 my-5">
                     <div class="card shadow-lg text-dark bg-light ">
-                        <div class="card-header p-4"><h4>{journal.title}</h4> <p>{formatDate(journal.sk)}</p></div>
+                        <div class="card-header p-4">
+                            <h4>{journal.title}</h4>{' '}
+                            <p>{formatDate(journal.sk)}</p>
+                        </div>
                         <div class="card-body">
                             <p class="card-text bg-body border p-3 rounded ">
                                 {journal.content}

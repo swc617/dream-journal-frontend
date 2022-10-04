@@ -14,21 +14,27 @@ import {
 
 const _ = require('lodash');
 
+// 일지 목록
 export default function Journals() {
     const [journals, setJournals] = useState([]);
     let navigate = useNavigate();
 
     const textAreaRef = useRef(null);
+
+    // 새로 일지를 호출하기 위한 dependency 변수
     const [toggleUpdate, setToggle] = useState(false);
 
+    // 꿈 타입을 나타내는 변수
     const [typeOption, setTypes] = useState('normalDream');
 
+    // 꿈 타입 별로 필터링 할 경우 사용되는 변수
     const [toggleByType, setByType] = useState(false);
 
     let todaysDate = new Date();
     todaysDate.setDate(todaysDate.getDate() + 1);
     let tomorrowsDate = todaysDate.toISOString().slice(0, 10);
 
+    // 디폴트 값 설정
     const [formData, setFormData] = useState({
         startDate: '2022-01-01',
         endDate: tomorrowsDate,
@@ -39,6 +45,7 @@ export default function Journals() {
         const fetchData = async (getByType) => {
             let fetchedJournals;
             let query;
+            // 꿈 타입별로 호출할 경우
             if (getByType) {
                 query = {
                     type: typeOption.typeOption,
@@ -60,7 +67,7 @@ export default function Journals() {
 
         fetchData(toggleByType).then((fetchedJournals) => {
             setJournals(fetchedJournals);
-            console.log(fetchedJournals);
+            // console.log(fetchedJournals);
         });
     }, [toggleUpdate]);
 
@@ -80,6 +87,7 @@ export default function Journals() {
     const getEditForm = () => {
         let todaysDate = new Date().toJSON().slice(0, 10).replace(/-/g, '');
 
+        // 일지는 하루에 하나만 추가 가능
         if (dates.includes(todaysDate)) {
             alert('You can only add one journal per day');
             return;
@@ -87,6 +95,7 @@ export default function Journals() {
         navigate('/add');
     };
 
+    // 날짜 표시 형식 변환 함수
     const formatToLocalDateString = (date) => {
         let dateString = date.toLocaleDateString();
         let dateArr = dateString.split('/');
@@ -102,6 +111,7 @@ export default function Journals() {
         return dates.includes(toCompare);
     };
 
+    // 달력 날짜 클릭시 호출되는 함수
     const dayClicked = (date) => {
         if (isJournalCreated(date)) {
             let dateString = formatToLocalDateString(date);
@@ -118,7 +128,6 @@ export default function Journals() {
         }
     };
 
-
     const handleChange = (event) => {
         setFormData({
             ...formData,
@@ -132,6 +141,7 @@ export default function Journals() {
         setToggle(!toggleUpdate);
     };
 
+    // 필터링 리셋 함수
     const handleReset = async (event) => {
         setFormData({
             startDate: '2022-01-01',
@@ -143,6 +153,7 @@ export default function Journals() {
         setToggle(!toggleUpdate);
     };
 
+    // 필터 드랍다운 변경 핸들러
     const handleFilterChange = (event) => {
         setTypes({
             typeOption,
@@ -150,6 +161,7 @@ export default function Journals() {
         });
     };
 
+    // 필터 버튼 클릭 핸들러
     const handleFilter = () => {
         if (typeOption === undefined) {
             setTypes({ typeOption: 'normalDream' });
@@ -158,6 +170,7 @@ export default function Journals() {
         setToggle(!toggleUpdate);
     };
 
+    // 꿈 타입 포맷하는 함수
     const divDreamType = (dreamType) => {
         let info = formatDreamType(dreamType);
         return <div className={info[0]}>{info[1]}</div>;

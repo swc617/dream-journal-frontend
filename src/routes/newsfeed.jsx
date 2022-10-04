@@ -35,6 +35,7 @@ export default function Newsfeed() {
         });
     };
 
+    // 꿈 타입 포맷하는 함수
     const divDreamType = (dreamType) => {
         let info = formatDreamType(dreamType);
         return <div className={info[0]}>{info[1]}</div>;

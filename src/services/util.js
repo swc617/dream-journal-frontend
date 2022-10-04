@@ -2,6 +2,7 @@ import { getUserInfo } from './authService';
 
 var randomWords = require('random-words');
 
+// 헤더 생성
 export function addHeaders() {
     return {
         'Content-Type': 'application/json',
@@ -10,11 +11,13 @@ export function addHeaders() {
     };
 }
 
+// API endpoint 호출
 export function getBaseURL() {
     const baseURL = process.env.REACT_APP_API_ENDPOINT;
     return baseURL;
 }
 
+// 프로필의 랜덤 아이디 생성
 export function getRandomUsername() {
     let randomNum = Math.floor(Math.random() * (99 - 10 + 1)) + 10;
     let randomName = randomWords({
@@ -26,10 +29,12 @@ export function getRandomUsername() {
     return randomUsername;
 }
 
+// 날짜 형식 변경
 export function changeDateFormat(date) {
     return date.replace(/-/g, '');
 }
 
+// 꿈 타입 형식 변경
 export function formatDreamType(dreamType) {
     let info;
     switch (dreamType) {
@@ -54,6 +59,7 @@ export function formatDreamType(dreamType) {
     return info;
 }
 
+// 날짜 포맷 변경
 export function formatDate(journalSortingKey) {
     let dateString = journalSortingKey.split('ENTRY#')[1].substr(0, 8);
     let year = dateString.substr(0, 4);

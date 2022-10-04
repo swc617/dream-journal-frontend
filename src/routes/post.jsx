@@ -48,6 +48,7 @@ export default function Post() {
         });
     }, []);
 
+    // 본인 댓글 삭제 할 수 있는 핸들러
     const handleCommentDelete = (commentItem) => {
         let filteredComments = comments.filter(
             (comment) => comment !== commentItem
@@ -63,7 +64,9 @@ export default function Post() {
         setToggle(!toggleUpdate);
     };
 
+    // 댓글 리스트
     const commentList = comments.map((commentItem, index) => {
+        // 모든 포스트는 더미로 유저 '_' 와 댓글 '_' 존재하기 때문에 이것을 제외 해야함
         if (commentItem.username !== '_') {
             return (
                 <>
@@ -91,6 +94,7 @@ export default function Post() {
         }
     });
 
+    // 포스트 좋아요 핸들러
     const handleLike = () => {
         let likedbyArr = post.likedby;
         let inc;
@@ -113,6 +117,7 @@ export default function Post() {
         setToggle(!toggleUpdate);
     };
 
+    // 댓글 필드 변경 핸들러
     const handleChange = (event) => {
         setNewComment({
             username: username,
@@ -121,6 +126,7 @@ export default function Post() {
         });
     };
 
+    // 댓글, 좋아요 수정할 경우 업데이트 호출
     useEffect(() => {
         const sendUpdateRequest = async () => {
             let response = await updateReactions(post, owner);

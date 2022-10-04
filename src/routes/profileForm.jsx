@@ -23,6 +23,8 @@ export default function ProfileForm() {
     const [firstTimeCreating, setFirstTimeCreating] = useState(false);
 
     useEffect(() => {
+        // 이메일이 없는 경우 처음으로 프로필을 수정하는 것이기
+        // 때문에 처음으로 수정하는 것을 나타내는 변수 사용
         if (!profile.email) {
             setFirstTimeCreating(true);
         }
@@ -30,6 +32,7 @@ export default function ProfileForm() {
         setEmailField(profile.email);
     }, []);
 
+    // 아이디 변경 핸들러
     const handleUserNameChange = (event) => {
         setUserNameField({
             userNameField,
@@ -41,6 +44,7 @@ export default function ProfileForm() {
         }
     };
 
+    // 이메일 변경 핸들러
     const handleEmailChange = (event) => {
         setEmailField({
             ...emailField,
@@ -62,6 +66,8 @@ export default function ProfileForm() {
             alert('all fields must be filled');
             return;
         } else if (
+            // 아이디를 변경했고 중복확인을 안한 경우 또는
+            // 처음으로 프로필을 만드는 경우
             (userNameChanged === true && isUsernameValid === false) ||
             firstTimeCreating === true
         ) {
@@ -73,6 +79,7 @@ export default function ProfileForm() {
                 username: userNameField.username,
                 email: emailField.email,
             };
+            // 변경된 값에 따라 요청 보낼 폼 데이터 설정
             if (emailChanged === false) {
                 formData.email = profile.email;
             } else if (userNameChanged === false) {
@@ -100,8 +107,8 @@ export default function ProfileForm() {
 
     const validateUsername = async () => {
         let response = await getUsernames();
-        // if first user to enter username or
-        // username is in usernames list
+        // 현재 사용자가 첫 사용자라서 아이디 목록이 비어있거나
+        // 목록에 사용자의 아이디가 없을 경우
         if (
             response.length === 0 ||
             !response[0].usernames.includes(userNameField.username)

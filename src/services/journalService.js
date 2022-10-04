@@ -3,6 +3,7 @@ import { addHeaders, getBaseURL } from './util';
 
 const baseURL = getBaseURL();
 
+// 일지 목록 호출
 export async function getJournals(query) {
     try {
         const response = await axios.get(baseURL + '/journals', {
@@ -15,6 +16,7 @@ export async function getJournals(query) {
     }
 }
 
+// 꿈 타입별로 일지 목록 호출
 export async function getJournalsByType(query) {
     try {
         const response = await axios.get(baseURL + '/types', {
@@ -27,6 +29,7 @@ export async function getJournalsByType(query) {
     }
 }
 
+// 일지 호출
 export async function getJournal(id) {
     try {
         const response = await axios.get(baseURL + '/journal/' + id, {
@@ -38,6 +41,7 @@ export async function getJournal(id) {
     }
 }
 
+// 일지 업데이트
 export async function updateJournal(journal, updateQuery) {
     try {
         let id = journal.sk.split('ENTRY#')[1];
@@ -58,6 +62,7 @@ export async function updateJournal(journal, updateQuery) {
     }
 }
 
+// 일지 삭제
 export async function deleteJournal(id) {
     try {
         const response = await axios.delete(baseURL + '/journal/' + id, {
@@ -69,6 +74,7 @@ export async function deleteJournal(id) {
     }
 }
 
+// 일지 생성
 export async function addJournal(journal) {
     try {
         const response = await axios.post(
